@@ -1,12 +1,9 @@
 import './App.css';
 import React, { Component } from 'react';
-<<<<<<< HEAD
 import ComponentJs from './js/ComponentJs';
 import ComponentJsx from './jsx/ComponentJsx';
 import ComponentClass from './class/ComponentClass.jsx';
-=======
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
->>>>>>> github-pages
 
 function Home() {
   return <h2> Halaman Home </h2>
