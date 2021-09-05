@@ -13,6 +13,7 @@ class App extends Component {
   render(){
     return (
       <div>
+        Github Pages
       </div>
     )
   }
