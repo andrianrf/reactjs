@@ -19,14 +19,17 @@ class App extends Component {
         <ComponentJs name="Andrian" />
         <ComponentJs name="Ramadhan" />
         <ComponentJs name="Febriana" />
+        <ComponentJs />
         <h1>ComponentJSX</h1>
         <ComponentJsx name="Andrian" />
         <ComponentJsx name="Ramadhan" />
         <ComponentJsx name="Febriana" />
+        <ComponentJsx />
         <h1>ComponentClass</h1>
         <ComponentClass name="Andrian" />
         <ComponentClass name="Ramadhan" />
         <ComponentClass name="Febriana" />
+        <ComponentClass />
       </React.Fragment>
     )
   }

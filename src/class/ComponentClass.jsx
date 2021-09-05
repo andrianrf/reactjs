@@ -10,4 +10,8 @@ class ComponentClass extends Component {
     }
 }
 
+ComponentClass.defaultProps = {
+    name: "default"
+}
+
 export default ComponentClass;
