@@ -36,7 +36,7 @@ class App extends Component {
 
   render(){
     return (
-      <React.Fragment>
+      <BrowserRouter>
         <h1>ComponentJS</h1>
         <ComponentJs name="Andrian" no="1" />
         <ComponentJs name="Ramadhan" no="2" />
@@ -52,7 +52,6 @@ class App extends Component {
         <ComponentClass name="Ramadhan" no="2" />
         <ComponentClass name="Febriana" no="3" />
         <ComponentClass />
-      <BrowserRouter>
         <div>
           <nav>
             <li> <Link to='/'> Home </Link> </li>
@@ -69,7 +68,6 @@ class App extends Component {
           </main>
         </div>      
       </BrowserRouter>
-      </React.Fragment>
     )
   }
 }
