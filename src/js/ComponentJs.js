@@ -1,5 +1,5 @@
 function ComponentJs(props) {
-    return (<p>Ini ComponentJs {props.name}</p>);
+    return (<p>Ini ComponentJs {props.name} {props.no}</p>);
 }
 
 ComponentJs.defaultProps = {

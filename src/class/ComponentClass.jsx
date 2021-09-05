@@ -6,7 +6,7 @@ class ComponentClass extends Component {
     }
 
     render(){
-        return (<p>Ini Component Class {this.props.name}</p>);
+        return (<p>Ini Component Class {this.props.name} {this.props.no}</p>);
     }
 }
 
