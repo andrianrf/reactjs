@@ -11,7 +11,7 @@ class ApiGet extends Component {
     }
   
     componentDidMount(){
-      fetch("https://jsonplaceholder.typicode.com/posts")
+      fetch("http://localhost:3004/posts")
       .then(Response => Response.json())
       .then(data => this.setState(
         {posts:data, isLoading:false}
