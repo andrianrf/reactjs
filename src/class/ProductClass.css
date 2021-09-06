@@ -1,0 +1,25 @@
+.header {
+    background: #00ff4c;
+    display: flex;
+    height: 10px;
+    justify-content: space-between;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-bottom: 40px;
+}
+
+.troley {
+    position: relative;
+}
+
+.troley img {
+    width: 30px;
+}
+
+.count {
+    background: cornflowerblue;
+    height: 10px;
+    text-align: center;
+    color: black;
+    position:absolute;
+}
