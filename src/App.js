@@ -1,39 +1,23 @@
 import './App.css';
-import { Component } from 'react';
+import { Component, Fragment } from 'react';
+import ApiGet from './class/ApiGet';
+import ApiGetV2 from './class/ApiGetV2';
+import ApiGetV3 from './class/ApiGetV3';
 
 
 class App extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      items: [],
-      isLoading: true
-    }
-  }
-
-  componentDidMount(){
-    fetch("https://jsonplaceholder.typicode.com/users")
-    .then(Response => Response.json())
-    .then(data => this.setState({items:data, isLoading:false}))
-  }
 
   render(){
 
-    const { items, isLoading } = this.state;
-
-    if(isLoading){
-      return <p>Loading...</p>
-    }
-
     return (
-      <div>
-        React App.js
-        <ul>
-          { items.map((item, index) =>
-          <li key={index}> {item.name} </li>
-          ) }
-        </ul>
-      </div>
+      <Fragment>
+        <h3>ApiGet V1</h3>
+        <ApiGet />
+        <h3>ApiGet V2</h3>
+        <ApiGetV2 />
+        <h3>ApiGet V3</h3>
+        <ApiGetV3 />
+      </Fragment>
     )
   }
 }
