@@ -18,6 +18,8 @@ class ApiCrud extends Component {
       }
     }
 
+
+
     getData = () => {
         fetch("http://localhost:3004/posts?_sort=id&_order=desc")
         .then(Response => Response.json())
@@ -30,7 +32,7 @@ class ApiCrud extends Component {
         fetch("http://localhost:3004/posts/"+id, { method: 'DELETE' })
             .then((res) => {
                 console.log(res);
-                this.getData();
+                this.setDefaultValueForm();
             });
     }
 
@@ -38,12 +40,12 @@ class ApiCrud extends Component {
         axios.delete("http://localhost:3004/posts/"+id)
         .then((res)=>{
             console.log(res);
-            this.getData();
+            this.setDefaultValueForm();
         });
     }
   
     componentDidMount(){
-      this.getData();
+      this.setDefaultValueForm();
     }
 
     handleFormOnChange = (event) => {
@@ -67,6 +69,7 @@ class ApiCrud extends Component {
         },
         isUpdate: false
       });
+      this.getData();
     }
 
     postApi = () => {
@@ -78,7 +81,7 @@ class ApiCrud extends Component {
        })
       .then((res) => {
           console.log(res);
-          this.getData();
+          this.setDefaultValueForm();
       });
 
     }
@@ -87,7 +90,7 @@ class ApiCrud extends Component {
       axios.post('http://localhost:3004/posts', this.state.form)
       .then((res) => {
         console.log(this.state.form);
-        this.getData();
+        this.setDefaultValueForm();
       },(err) => {
         console.log(err);
       }
@@ -110,7 +113,7 @@ class ApiCrud extends Component {
        })
       .then((res) => {
           console.log(res);
-          this.getData();
+          this.setDefaultValueForm();
       });
 
     }
@@ -119,6 +122,7 @@ class ApiCrud extends Component {
       axios.put('http://localhost:3004/posts/'+this.state.form.id, this.state.form)
       .then((res) => {
         console.log(this.state.form);
+        this.setDefaultValueForm();
       },(err) => {
         console.log(err);
       }
@@ -133,7 +137,6 @@ class ApiCrud extends Component {
       else{
       this.postApi();
       }
-      this.setDefaultValueForm();
     }
     
     render(){
