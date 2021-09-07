@@ -30,16 +30,14 @@ class ApiCrud extends Component {
 
     handlerDelete = (id) => {
         fetch("http://localhost:3004/posts/"+id, { method: 'DELETE' })
-            .then((res) => {
-                console.log(res);
+            .then(() => {
                 this.setDefaultValueForm();
             });
     }
 
     handlerDeleteV2 = (id) => {
         axios.delete("http://localhost:3004/posts/"+id)
-        .then((res)=>{
-            console.log(res);
+        .then(()=>{
             this.setDefaultValueForm();
         });
     }
@@ -79,8 +77,7 @@ class ApiCrud extends Component {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(this.state.form)
        })
-      .then((res) => {
-          console.log(res);
+      .then(() => {
           this.setDefaultValueForm();
       });
 
@@ -88,7 +85,7 @@ class ApiCrud extends Component {
 
     postApiV2 = () => {
       axios.post('http://localhost:3004/posts', this.state.form)
-      .then((res) => {
+      .then(() => {
         console.log(this.state.form);
         this.setDefaultValueForm();
       },(err) => {
@@ -111,8 +108,7 @@ class ApiCrud extends Component {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(this.state.form)
        })
-      .then((res) => {
-          console.log(res);
+      .then(() => {
           this.setDefaultValueForm();
       });
 
@@ -120,11 +116,8 @@ class ApiCrud extends Component {
 
     putApiV2 = () => {
       axios.put('http://localhost:3004/posts/'+this.state.form.id, this.state.form)
-      .then((res) => {
-        console.log(this.state.form);
+      .then(() => {
         this.setDefaultValueForm();
-      },(err) => {
-        console.log(err);
       }
       )
     }
