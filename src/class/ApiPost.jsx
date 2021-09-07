@@ -57,6 +57,14 @@ class ApiPost extends Component {
     handleSubmit = (event) => {
       event.preventDefault();
       this.postApi();
+      this.setState({
+        form:{
+          id:0,
+          title: "",
+          body: "",
+          userId: 1
+        }
+      });
     }
 
     postApi = () => {
@@ -94,8 +102,8 @@ class ApiPost extends Component {
         
       <Fragment>
         <form onSubmit={this.handleSubmit}>
-          <input type="text" name="title" onChange={this.handleFormOnChange} />
-          <input type="text" name="body" onChange={this.handleFormOnChange} />
+          <input type="text" name="title" onChange={this.handleFormOnChange} value={this.state.form.title} />
+          <input type="text" name="body" onChange={this.handleFormOnChange} value={this.state.form.body} />
           <button>Submit</button>
         </form>
       <ul>
