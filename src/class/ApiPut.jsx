@@ -2,7 +2,7 @@ import axios from "axios";
 import { Fragment } from "react";
 import { Component } from "react";
 
-class ApiPost extends Component {
+class ApiPut extends Component {
     constructor(props){
       super(props);
       this.state = {
@@ -165,4 +165,4 @@ class ApiPost extends Component {
     }
 }
 
-export default ApiPost;
+export default ApiPut;

@@ -1,6 +1,6 @@
 import './App.css';
 import { Component, Fragment } from 'react';
-import ApiPost from './class/ApiPost';
+import ApiPut from './class/ApiPut';
 
 // npm install -g json-server
 // json-server --watch db.json --port 3004
@@ -13,7 +13,7 @@ class App extends Component {
     return (
       <Fragment>
         <h3>ApiPost</h3>
-        <ApiPost />
+        <ApiPut />
       </Fragment>
     )
   }
