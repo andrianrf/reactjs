@@ -18,14 +18,25 @@ class ApiCrud extends Component {
       }
     }
 
-
-
     getData = () => {
         fetch("http://localhost:3004/posts?_sort=id&_order=desc")
         .then(Response => Response.json())
         .then(data => this.setState(
           {posts:data, isLoading:false}
           ));
+    }
+
+    setDefaultValueForm = () => {
+      this.setState({
+        form:{
+          id:0,
+          title: "",
+          body: "",
+          userId: 1
+        },
+        isUpdate: false
+      });
+      this.getData();
     }
 
     handlerDelete = (id) => {
@@ -55,19 +66,6 @@ class ApiCrud extends Component {
       this.setState({
         form: newForm
       });
-    }
-
-    setDefaultValueForm = () => {
-      this.setState({
-        form:{
-          id:0,
-          title: "",
-          body: "",
-          userId: 1
-        },
-        isUpdate: false
-      });
-      this.getData();
     }
 
     postApi = () => {
