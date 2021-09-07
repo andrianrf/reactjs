@@ -54,9 +54,7 @@ class ApiPost extends Component {
       });
     }
 
-    handleSubmit = (event) => {
-      event.preventDefault();
-      this.postApi();
+    setDefaultValueForm = () => {
       this.setState({
         form:{
           id:0,
@@ -65,6 +63,12 @@ class ApiPost extends Component {
           userId: 1
         }
       });
+    }
+
+    handleSubmit = (event) => {
+      event.preventDefault();
+      this.postApi();
+      this.setDefaultValueForm();
     }
 
     postApi = () => {
