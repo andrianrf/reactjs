@@ -2,7 +2,7 @@ import axios from "axios";
 import { Fragment } from "react";
 import { Component } from "react";
 
-class ApiPost extends Component {
+class ApiCrud extends Component {
     constructor(props){
       super(props);
       this.state = {
@@ -119,7 +119,6 @@ class ApiPost extends Component {
       axios.put('http://localhost:3004/posts/'+this.state.form.id, this.state.form)
       .then((res) => {
         console.log(this.state.form);
-        this.getData();
       },(err) => {
         console.log(err);
       }
@@ -165,4 +164,4 @@ class ApiPost extends Component {
     }
 }
 
-export default ApiPost;
+export default ApiCrud;
