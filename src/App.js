@@ -1,6 +1,6 @@
 import './App.css';
 import { Component, Fragment } from 'react';
-import ApiGet from './class/ApiGet';
+import ApiDelete from './class/ApiDelete';
 
 // npm install -g json-server
 // json-server --watch db.json --port 3004
@@ -12,8 +12,8 @@ class App extends Component {
 
     return (
       <Fragment>
-        <h3>ApiGet</h3>
-        <ApiGet />
+        <h3>ApiDelete</h3>
+        <ApiDelete />
       </Fragment>
     )
   }
