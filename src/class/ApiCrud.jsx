@@ -123,7 +123,7 @@ class ApiCrud extends Component {
     handleSubmit = (event) => {
       event.preventDefault();
       if(this.state.isUpdate){
-        this.putApiV2();
+        this.putApi();
       }
       else{
       this.postApi();
