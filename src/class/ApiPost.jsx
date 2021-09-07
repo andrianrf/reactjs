@@ -94,8 +94,8 @@ class ApiPost extends Component {
         
       <Fragment>
         <form onSubmit={this.handleSubmit}>
-          <input type="text" name="title" id="title" onChange={this.handleFormOnChange} />
-          <input type="text" name="body" id="body" onChange={this.handleFormOnChange} />
+          <input type="text" name="title" onChange={this.handleFormOnChange} />
+          <input type="text" name="body" onChange={this.handleFormOnChange} />
           <button>Submit</button>
         </form>
       <ul>
