@@ -1,4 +1,3 @@
-import axios from "axios";
 import { Fragment } from "react";
 import { Component } from "react";
 
@@ -45,13 +44,6 @@ class ApiCrud extends Component {
                 this.setDefaultValueForm();
             });
     }
-
-    handlerDeleteV2 = (id) => {
-        axios.delete("http://localhost:3004/posts/"+id)
-        .then(()=>{
-            this.setDefaultValueForm();
-        });
-    }
   
     componentDidMount(){
       this.setDefaultValueForm();
@@ -81,17 +73,6 @@ class ApiCrud extends Component {
 
     }
 
-    postApiV2 = () => {
-      axios.post('http://localhost:3004/posts', this.state.form)
-      .then(() => {
-        console.log(this.state.form);
-        this.setDefaultValueForm();
-      },(err) => {
-        console.log(err);
-      }
-      )
-    }
-
     handlerUpdate = (data) => {
       this.setState({
         isUpdate:true,
@@ -111,19 +92,11 @@ class ApiCrud extends Component {
       });
 
     }
-
-    putApiV2 = () => {
-      axios.put('http://localhost:3004/posts/'+this.state.form.id, this.state.form)
-      .then(() => {
-        this.setDefaultValueForm();
-      }
-      )
-    }
     
     handleSubmit = (event) => {
       event.preventDefault();
       if(this.state.isUpdate){
-        this.putApiV2();
+        this.putApi();
       }
       else{
       this.postApi();
