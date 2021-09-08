@@ -1,6 +1,5 @@
 import './App.css';
 import React, { Component } from 'react';
-import ProductClass from './class/ProductClass';
 import TrolleyClass from './class/TrolleyClass';
 
 class App extends Component {
