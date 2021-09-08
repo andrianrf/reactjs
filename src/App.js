@@ -1,6 +1,6 @@
 import './App.css';
 import React, { Component } from 'react';
-import TrolleyClass from './class/TrolleyClass';
+import TrolleyClass from './pages/TrolleyClass';
 
 class App extends Component {
 

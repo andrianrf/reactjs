@@ -2,7 +2,8 @@ import { Fragment } from "react";
 import { Component } from "react";
 import './ProductClass.css';
 
-class ProductClass extends Component {
+class CounterClass extends Component {
+    
     state = {
         count: 4
     }
@@ -24,22 +25,18 @@ class ProductClass extends Component {
         }, () => this.handlerCounterChange(this.state.count));
     }
     }
-
+    
     render(){
         return (
         <Fragment>
-            <div className="card">
-                <p className="product-title">Daging Ayam Berbumbu</p>
-                <p className="product-price">Rp. 41.000</p>
                 <div className="counter">
                     <button className="minus" onClick={this.handlerMinus}>-</button>
                     <input type="text" value={this.state.count} />
                     <button className="plus" onClick={this.handlerPlus}>+</button>
                 </div>
-            </div>
         </Fragment>
         );
     }
 }
 
-export default ProductClass;
+export default CounterClass;
