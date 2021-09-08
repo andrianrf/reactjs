@@ -1,5 +1,6 @@
 //installasi
 // npm install --save redux
+// npm install --save react-redux
 
 //running
 // node redux.js
