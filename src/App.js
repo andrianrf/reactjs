@@ -1,13 +1,17 @@
 import './App.css';
-import React, { Component } from 'react';
+import React, { Component, createContext } from 'react';
 import TrolleyClass from './pages/TrolleyClass';
 
-class App extends Component {
+export const RootContext = createContext();
+const Provider = RootContext.Provider;
 
-  constructor(props){
-    super(props);
-    this.state = {
-    }
+class App extends Component {
+  state = {
+    totalOrder: 0
+  }
+
+  dispatch = (action) => {
+    
   }
 
   render(){
