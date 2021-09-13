@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import { Component } from "react";
+import ApiService from "../services/ApiService";
 
 class ApiCrud extends Component {
     constructor(props){
@@ -18,11 +19,24 @@ class ApiCrud extends Component {
     }
 
     getData = () => {
-        fetch("http://localhost:3004/posts?_sort=id&_order=desc")
-        .then(Response => Response.json())
-        .then(data => this.setState(
-          {posts:data, isLoading:false}
-          ));
+      ApiService.getPosts()
+      .then(result => {
+        this.setState({
+          posts: result,
+          isLoading: false
+        });
+      });
+    }
+
+    
+
+    postApi = () => {
+
+      ApiService.postPosts(this.state.form)
+      .then((res) =>{
+        this.getData();
+      })
+
     }
 
     setDefaultValueForm = () => {
@@ -39,10 +53,12 @@ class ApiCrud extends Component {
     }
 
     handlerDelete = (id) => {
-        fetch("http://localhost:3004/posts/"+id, { method: 'DELETE' })
-            .then(() => {
-                this.setDefaultValueForm();
-            });
+      
+      ApiService.deletePost(id)
+      .then((res) =>{
+        this.getData();
+      })
+      
     }
   
     componentDidMount(){
@@ -62,14 +78,10 @@ class ApiCrud extends Component {
 
     postApi = () => {
 
-      fetch("http://localhost:3004/posts", { 
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(this.state.form)
-       })
-      .then(() => {
-          this.setDefaultValueForm();
-      });
+      ApiService.postPosts(this.state.form)
+      .then((res) =>{
+        this.getData();
+      })
 
     }
 
@@ -82,14 +94,10 @@ class ApiCrud extends Component {
     
     putApi = () => {
 
-      fetch("http://localhost:3004/posts/"+this.state.form.id, { 
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(this.state.form)
-       })
-      .then(() => {
-          this.setDefaultValueForm();
-      });
+      ApiService.putPost(this.state.form.id, this.state.form)
+      .then((res) =>{
+        this.getData();
+      })
 
     }
     
