@@ -66,15 +66,50 @@ const PostV2 = (endpoint, data) => {
 
 }
 
+
+const Delete = (endpoint) => {
+    const promise = new Promise((resolve, reject) => {
+
+fetch(endpoint, { 
+    method: 'DELETE'
+   })
+  .then((res) => {
+    resolve(res);
+  },(err) => {
+    reject(err);
+});
+    })
+    return promise;
+
+}
+
+const DeleteV2 = (endpoint) => {
+    const promise = new Promise((resolve, reject) => {
+
+        axios.delete(endpoint)
+        .then((res) => {
+            resolve(res);
+          },(err) => {
+            reject(err);
+        });
+
+    })
+    return promise;
+
+}
+
+
 const getPosts = () => Get(beLocalUrl+'/posts?_sort=id&_order=desc');
 const getComments = () => Get(beInetUrl+'/comments');
 
 const postPosts = (data) => Post(beLocalUrl+'/posts', data);
+const deletePost = (id) => Delete(beLocalUrl+'/posts/'+id);
 
 const ApiService = {
     getPosts,
     getComments,
-    postPosts
+    postPosts,
+    deletePost
 }
 
 export default ApiService;

@@ -28,12 +28,24 @@ class ApiPost extends Component {
       });
     }
 
+    
+
+    postApi = () => {
+
+      ApiService.postPosts(this.state.form)
+      .then((res) =>{
+        this.getData();
+      })
+
+    }
+
     handlerDelete = (id) => {
-        fetch("http://localhost:3004/posts/"+id, { method: 'DELETE' })
-            .then((res) => {
-                console.log(res);
-                this.getData();
-            });
+      
+      ApiService.deletePost(id)
+      .then((res) =>{
+        this.getData();
+      })
+      
     }
 
     handlerDeleteV2 = (id) => {
