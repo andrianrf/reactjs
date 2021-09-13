@@ -5,22 +5,22 @@ class ApiGet extends Component {
     constructor(props){
       super(props);
       this.state = {
-        items: [],
+        posts: [],
         isLoading: true
       }
     }
   
     componentDidMount(){
-      fetch("https://jsonplaceholder.typicode.com/users")
+      fetch("http://localhost:3004/posts")
       .then(Response => Response.json())
-      .then(data => this.setState({items:data, isLoading:false}))
+      .then(data => this.setState(
+        {posts:data, isLoading:false}
+        ))
     }
 
     render(){
-
-        const { items, isLoading } = this.state;
     
-        if(isLoading){
+        if(this.state.isLoading){
           return <p>Loading...</p>
         }
 
@@ -28,8 +28,8 @@ class ApiGet extends Component {
         
       <Fragment>
       <ul>
-        { items.map((item, index) =>
-        <li key={index}> {item.name} </li>
+        { this.state.posts.map((post) =>
+        <li key={post.id}> {post.title} </li>
         ) }
       </ul>
     </Fragment>
