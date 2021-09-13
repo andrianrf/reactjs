@@ -99,17 +99,55 @@ const DeleteV2 = (endpoint) => {
 }
 
 
+const Put = (endpoint, data) => {
+    const promise = new Promise((resolve, reject) => {
+
+fetch(endpoint, { 
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+   })
+   .then((res) => {
+     resolve(res);
+   },(err) => {
+     reject(err);
+ });
+
+})
+return promise;
+
+}
+
+
+const PutV2 = (endpoint, data) => {
+    const promise = new Promise((resolve, reject) => {
+
+        axios.put(endpoint, data)
+        .then((res) => {
+          resolve(res);
+        },(err) => {
+          reject(err);
+      });
+
+})
+return promise;
+
+}
+
+
 const getPosts = () => Get(beLocalUrl+'/posts?_sort=id&_order=desc');
 const getComments = () => Get(beInetUrl+'/comments');
 
 const postPosts = (data) => Post(beLocalUrl+'/posts', data);
 const deletePost = (id) => Delete(beLocalUrl+'/posts/'+id);
+const putPost = (id, data) => Put(beLocalUrl+'/posts/'+id, data);
 
 const ApiService = {
     getPosts,
     getComments,
     postPosts,
-    deletePost
+    deletePost,
+    putPost
 }
 
 export default ApiService;
