@@ -1,21 +1,31 @@
 import { Fragment } from "react";
 import { Component } from "react";
+import ApiService from "../services/ApiService";
 
 class ApiGet extends Component {
-    constructor(props){
-      super(props);
-      this.state = {
-        posts: [],
-        isLoading: true
-      }
+    state = {
+      posts: [],
+      comments: [],
+      isLoading: true
     }
   
     componentDidMount(){
-      fetch("http://localhost:3004/posts")
-      .then(Response => Response.json())
-      .then(data => this.setState(
-        {posts:data, isLoading:false}
-        ))
+      ApiService.getPosts()
+      .then(result => {
+        this.setState({
+          posts: result,
+          isLoading: false
+        });
+      });
+
+      
+      ApiService.getComments()
+      .then(result => {
+        this.setState({
+          comments: result,
+          isLoading: false
+        });
+      });
     }
 
     render(){
@@ -27,9 +37,17 @@ class ApiGet extends Component {
         return (
         
       <Fragment>
+        Posts
       <ul>
         { this.state.posts.map((post) =>
         <li key={post.id}> {post.title} </li>
+        ) }
+      </ul>
+      Comments
+      
+      <ul>
+        { this.state.comments.map((comment) =>
+        <li key={comment.id}> {comment.name} </li>
         ) }
       </ul>
     </Fragment>
