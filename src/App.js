@@ -1,5 +1,8 @@
 import './App.css';
 import { Component } from 'react';
+import Register from './pages/firebase-auth/Register';
+
+// npm install firebase --save
 
 class App extends Component {
 
@@ -12,7 +15,8 @@ class App extends Component {
   render(){
     return (
       <div>
-        React App.js
+        Register
+        <Register />
       </div>
     )
   }
