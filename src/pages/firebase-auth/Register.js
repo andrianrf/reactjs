@@ -45,10 +45,11 @@ class Register extends Component {
             <Fragment>
                 <div className="auth-container">
                     <div className="auth-card">
-                        <p className="auth-title">Register {this.props.reduxPopup} </p>
+                        <p className="auth-title">Register {this.props.reduxUsername} </p>
                         <input className="input" id="email" type="text" onChange={this.handleChangeText} placeholder="Email" />
                         <input className="input" id="password" type="password" onChange={this.handleChangeText} placeholder="Password" />
                         <button className="btn" onClick={this.handleSubmit} >Register</button>
+                        <button className="btn" onClick={this.props.reduxChangeUsername} >Change Username</button>
                     </div>
                 </div>
             </Fragment>
@@ -57,7 +58,12 @@ class Register extends Component {
 }
 
 const reduxState = (state) =>({
-    reduxPopup: state.popup
+    reduxPopup: state.popup,
+    reduxUsername: state.username
 })
 
-export default connect(reduxState, null)(Register);
+const reduxReducer = (dispatch) => ({
+    reduxChangeUsername: () => dispatch({type: "CHANGE_USERNAME", value: "Andrian Ramadhan Febriana"})
+})
+
+export default connect(reduxState, reduxReducer)(Register);
