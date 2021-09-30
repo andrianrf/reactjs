@@ -1,6 +1,8 @@
 import { Component, Fragment } from "react";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import firebaseApp from "../../config/firebaseApp";
+import firebaseApp from "../../config/firebase/firebaseApp";
+import { connect } from "react-redux";
+
 import './Register.scss';
 
 
@@ -43,7 +45,7 @@ class Register extends Component {
             <Fragment>
                 <div className="auth-container">
                     <div className="auth-card">
-                        <p className="auth-title">Register</p>
+                        <p className="auth-title">Register {this.props.reduxPopup} </p>
                         <input className="input" id="email" type="text" onChange={this.handleChangeText} placeholder="Email" />
                         <input className="input" id="password" type="password" onChange={this.handleChangeText} placeholder="Password" />
                         <button className="btn" onClick={this.handleSubmit} >Register</button>
@@ -54,4 +56,8 @@ class Register extends Component {
     }
 }
 
-export default Register;
+const reduxState = (state) =>({
+    reduxPopup: state.popup
+})
+
+export default connect(reduxState, null)(Register);
