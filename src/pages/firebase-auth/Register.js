@@ -44,8 +44,8 @@ class Register extends Component {
                 <div className="auth-container">
                     <div className="auth-card">
                         <p className="auth-title">Register</p>
-                        <input className="input" id="email" type="text" onChange={this.handleChangeText} />
-                        <input className="input" id="password" type="password" onChange={this.handleChangeText} />
+                        <input className="input" id="email" type="text" onChange={this.handleChangeText} placeholder="Email" />
+                        <input className="input" id="password" type="password" onChange={this.handleChangeText} placeholder="Password" />
                         <button className="btn" onClick={this.handleSubmit} >Register</button>
                     </div>
                 </div>
