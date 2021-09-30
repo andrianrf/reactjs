@@ -4,6 +4,7 @@ import firebaseApp from "../../config/firebase/firebaseApp";
 import { connect } from "react-redux";
 
 import './Register.scss';
+import Button from "../../components/atoms/Button/Button";
 
 
 class Register extends Component {
@@ -48,7 +49,7 @@ class Register extends Component {
                         <p className="auth-title">Register {this.props.reduxUsername} </p>
                         <input className="input" id="email" type="text" onChange={this.handleChangeText} placeholder="Email" />
                         <input className="input" id="password" type="password" onChange={this.handleChangeText} placeholder="Password" />
-                        <button className="btn" onClick={this.handleSubmit} >Register</button>
+                        <Button onClick={this.handleSubmit} value="Register" />
                         <button className="btn" onClick={this.props.reduxChangeUsername} >Change Username</button>
                     </div>
                 </div>

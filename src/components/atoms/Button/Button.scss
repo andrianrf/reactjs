@@ -1,0 +1,27 @@
+button.btn {
+    padding: 16px;
+    border: 1px solid #2196f3;
+    border-radius: 8px;
+    min-width: 200px;
+    background: #2196f3;
+    color: white;
+    display: block;
+    margin: 0 auto;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+    outline: none;
+
+    &:hover {
+        background: #1873bb;
+        cursor: pointer;
+    }
+
+    &.disable {
+        background: gray;
+        border: 1px solid gray;
+        &:hover {
+            cursor: not-allowed;
+        }
+    }
+}

@@ -5,19 +5,19 @@ const initialState = {
 }
 
 const reduxReducer = (state=initialState, action) => {
-    if(action.type == "CHANGE_POPUP"){
+    if(action.type === "CHANGE_POPUP"){
         return {
             ...state,
             popup: action.value
         }
     }
-    if(action.type == "CHANGE_ISLOGIN"){
+    if(action.type === "CHANGE_ISLOGIN"){
         return {
             ...state,
             isLogin: action.value
         }
     }
-    if(action.type == "CHANGE_USERNAME"){
+    if(action.type === "CHANGE_USERNAME"){
         return {
             ...state,
             username: action.value
