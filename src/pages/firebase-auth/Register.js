@@ -1,6 +1,7 @@
 import { Component, Fragment } from "react";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import firebaseApp from "../../config/firebaseApp";
+import './Register.scss';
 
 
 class Register extends Component {
@@ -41,10 +42,12 @@ class Register extends Component {
         return (
             <Fragment>
                 <div className="auth-container">
-                    <p className="auth-title">Register</p>
-                    <input className="input" id="email" type="text" onChange={this.handleChangeText} />
-                    <input className="input" id="password" type="password" onChange={this.handleChangeText} />
-                    <button className="btn" onClick={this.handleSubmit} >Register</button>
+                    <div className="auth-card">
+                        <p className="auth-title">Register</p>
+                        <input className="input" id="email" type="text" onChange={this.handleChangeText} />
+                        <input className="input" id="password" type="password" onChange={this.handleChangeText} />
+                        <button className="btn" onClick={this.handleSubmit} >Register</button>
+                    </div>
                 </div>
             </Fragment>
         );
