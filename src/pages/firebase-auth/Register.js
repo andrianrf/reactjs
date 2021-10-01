@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 
 import './Register.scss';
 import Button from "../../components/atoms/Button/Button";
+import { Loading } from "../../config/redux/action/Loading";
 
 
 class Register extends Component {
@@ -49,8 +50,9 @@ class Register extends Component {
                         <p className="auth-title">Register {this.props.reduxUsername} </p>
                         <input className="input" id="email" type="text" onChange={this.handleChangeText} placeholder="Email" />
                         <input className="input" id="password" type="password" onChange={this.handleChangeText} placeholder="Password" />
-                        <Button onClick={this.handleSubmit} value="Register" />
-                        <button className="btn" onClick={this.props.reduxChangeUsername} >Change Username</button>
+                        <Button onClick={this.handleSubmit} value="Register" loading={this.props.reduxIsLoading } />
+                        <Button onClick={() => this.props.reduxLoading({message:"message loading"})} value="Loading" loading={this.props.reduxIsLoading } />
+                        <Button onClick={this.props.reduxChangeUsername} value="Change Username" loading={this.props.reduxIsLoading } />
                     </div>
                 </div>
             </Fragment>
@@ -60,11 +62,13 @@ class Register extends Component {
 
 const reduxState = (state) =>({
     reduxPopup: state.popup,
-    reduxUsername: state.username
+    reduxUsername: state.username,
+    reduxIsLoading: state.isLoading
 })
 
 const reduxReducer = (dispatch) => ({
-    reduxChangeUsername: () => dispatch({type: "CHANGE_USERNAME", value: "Andrian Ramadhan Febriana"})
+    reduxChangeUsername: () => dispatch({type: "CHANGE_USERNAME", value: "Andrian Ramadhan Febriana"}),
+    reduxLoading: (data) => dispatch(Loading(data))
 })
 
 export default connect(reduxState, reduxReducer)(Register);
