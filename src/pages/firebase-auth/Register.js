@@ -44,6 +44,10 @@ class Register extends Component {
             console.log("error message: ", errorMessage);
             this.props.reduxChangeIsLoading(false);
         });
+        this.setState({
+            email: '',
+            password: '' 
+        });
     }
 
 
@@ -53,8 +57,8 @@ class Register extends Component {
                 <div className="auth-container">
                     <div className="auth-card">
                         <p className="auth-title">Register {this.props.reduxUsername} </p>
-                        <input className="input" id="email" type="text" onChange={this.handleChangeText} placeholder="Email" />
-                        <input className="input" id="password" type="password" onChange={this.handleChangeText} placeholder="Password" />
+                        <input className="input" id="email" type="text" onChange={this.handleChangeText} placeholder="Email" value={this.state.email} />
+                        <input className="input" id="password" type="password" onChange={this.handleChangeText} placeholder="Password" value={this.state.password} />
 
                         <Button onClick={() => this.handleSubmit()} value="Register" loading={this.props.reduxIsLoading } />
                         <Button onClick={() => this.props.reduxLoading({message:"message loading"})} value="Loading" loading={this.props.reduxIsLoading } />
