@@ -1,19 +1,16 @@
 import './App.css';
-import { Component } from 'react';
+import { Component, Fragment } from 'react';
 
 class App extends Component {
 
-  constructor(props){
-    super(props);
-    this.state = {
-    }
-  }
-
   render(){
     return (
-      <div>
-        React App.js
-      </div>
+      <Fragment>
+        <ol>
+          <li>ES7 React/Redux/GraphQL : Shift+P > ES7 > function / class</li>
+          <li></li>
+        </ol>
+      </Fragment>
     )
   }
 }
