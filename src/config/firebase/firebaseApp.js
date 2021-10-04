@@ -10,6 +10,7 @@ const firebaseConfig = {
   apiKey: "AIzaSyD_LzVGtHWHSmJQxRhRk-WItfQPunb716s",
   authDomain: "reactjs-firebase-21638.firebaseapp.com",
   projectId: "reactjs-firebase-21638",
+  databaseURL: "https://reactjs-firebase-21638-default-rtdb.asia-southeast1.firebasedatabase.app",
   storageBucket: "reactjs-firebase-21638.appspot.com",
   messagingSenderId: "987813808526",
   appId: "1:987813808526:web:0ccc21f3d14acf5d437cdf",

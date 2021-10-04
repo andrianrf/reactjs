@@ -1,6 +1,8 @@
 import { Component, Fragment } from "react";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import firebaseApp from "../../../config/firebase/firebaseApp";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getDatabase, ref, set } from "firebase/database";
+
 import { connect } from "react-redux";
 
 import '../../../assets/css/Global.scss';
@@ -26,6 +28,8 @@ class Login extends Component {
     
         this.props.reduxChangeIsLoading(true);
 
+        let loginStatus = "";
+
         await signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             // Signed in 
@@ -33,7 +37,7 @@ class Login extends Component {
                     // ...
                     console.log("user: ", user);
                     console.log("success: ", userCredential);
-                    this.props.reduxChangeIsLoading(false);
+                    loginStatus = "success";
 
                     const dataUser = {
                         email: userCredential._tokenResponse.email,
@@ -49,15 +53,18 @@ class Login extends Component {
             // ..
             console.log("error code: ", errorCode);
             console.log("error message: ", errorMessage);
-            this.props.reduxChangeIsLoading(false);
+            loginStatus = "error";
         });
+
+        await writeUserData(email, loginStatus);
+          
+        this.props.reduxChangeIsLoading(false);
 
         this.setState({
             email: '',
             password: '' 
         });
     }
-
 
     render(){
         return (
@@ -75,6 +82,15 @@ class Login extends Component {
         );
     }
 }
+  
+function writeUserData(email, loginStatus) {
+    const db = getDatabase(firebaseApp);
+    set(ref(db, 'loginLogs/'+new Date().getTime()), {
+      email: email,
+      loginStatus: loginStatus,
+      date: new Date().getTime()
+    });
+  }
 
 const reduxState = (state) =>({
     reduxIsLoading: state.isLoading
