@@ -33,15 +33,9 @@ class App extends Component {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/">
-            <Home />
-          </Route>
-          <Route path="/register" >
-            <Register />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
+            <Route path='/' exact component={Home} />
+            <Route path='/register' component={Register} />
+            <Route path='/login' exact component={Login} />
         </Switch>
       </div>
     </BrowserRouter>
