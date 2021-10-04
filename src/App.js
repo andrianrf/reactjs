@@ -28,8 +28,13 @@ export default function App() {
           "source.fixAll.eslint": true &#125;) .eslintrc.json ("rules": &#123;
           "no-console": "off" &#125;) (untuk exclude rule)
         </li>
-        <li>Prettier - Code formatter (untuk memformat code)</li>
+        <li>
+          Prettier - Code formatter (untuk memformat code) ctrl+shift+p &gt; format selection
+        </li>
         <li>Bracket Pair Colorizer (untuk mewarnai sub bracket)</li>
+        <li>Color Highlight (untuk mewarnai hexadecimal) #fff</li>
+        <li>Path inetllisense (untuk autocomplete path)</li>
+        <li>Git Lens (untuk melihat commit terakhir dari suatu line)</li>
       </ol>
     </div>
   );
