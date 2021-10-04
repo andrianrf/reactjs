@@ -2,7 +2,11 @@ const initialState = {
     popup: false,
     isLogin: false,
     username: "Andrian",
-    isLoading: false
+    isLoading: false,
+    user: {
+        email: '',
+        localId: ''
+    }
 }
 
 const reduxReducer = (state=initialState, action) => {
@@ -28,6 +32,12 @@ const reduxReducer = (state=initialState, action) => {
         return {
             ...state,
             isLoading: action.value
+        }
+    }
+    if(action.type === "CHANGE_USER"){
+        return {
+            ...state,
+            user: action.value
         }
     }
     return state;

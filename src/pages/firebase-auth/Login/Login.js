@@ -34,6 +34,14 @@ class Login extends Component {
                     console.log("user: ", user);
                     console.log("success: ", userCredential);
                     this.props.reduxChangeIsLoading(false);
+
+                    const dataUser = {
+                        email: userCredential._tokenResponse.email,
+                        localId: userCredential._tokenResponse.localId
+                    }
+
+                    console.log("dataUser", dataUser);
+                    this.props.reduxChangeUser(dataUser);
         })
         .catch((error) => {
             var errorCode = error.code;
@@ -73,7 +81,8 @@ const reduxState = (state) =>({
 })
 
 const reduxReducer = (dispatch) => ({
-    reduxChangeIsLoading: (data) => dispatch({type: "CHANGE_LOADING", value: data})
+    reduxChangeIsLoading: (data) => dispatch({type: "CHANGE_LOADING", value: data}),
+    reduxChangeUser: (data) => dispatch({type: "CHANGE_USER", value: data}),
 })
 
 export default connect(reduxState, reduxReducer)(Login);
