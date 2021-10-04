@@ -1,0 +1,29 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "linebreak-style" : ["error", "windows"],
+        "react/prefer-stateless-function": "off",
+        "linebreak-style" : "off",
+        "react/jsx-filename-extension": "off",
+        "arrow-parens":"off",
+        "no-undef":"off",
+        "react/react-in-jsx-scope": "off"
+    }
+}
