@@ -1,14 +1,14 @@
 import { Component, Fragment } from "react";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import firebaseApp from "../../config/firebase/firebaseApp";
+import firebaseApp from "../../../config/firebase/firebaseApp";
 import { connect } from "react-redux";
 
-import './Register.scss';
-import Button from "../../components/atoms/Button/Button";
-import { Loading } from "../../config/redux/action/Loading";
+import '../../../assets/css/Global.scss';
+import Button from "../../../components/atoms/Button/Button";
+import { Loading } from "../../../config/redux/action/Loading";
 
 
-class Register extends Component {
+class Login extends Component {
     state = {
         email: '',
         password: ''
@@ -54,9 +54,9 @@ class Register extends Component {
     render(){
         return (
             <Fragment>
-                <div className="auth-container">
-                    <div className="auth-card">
-                        <p className="auth-title">Register {this.props.reduxUsername} </p>
+                <div className="container">
+                    <div className="card">
+                        <p className="title">Register {this.props.reduxUsername} </p>
                         <input className="input" id="email" type="text" onChange={this.handleChangeText} placeholder="Email" value={this.state.email} />
                         <input className="input" id="password" type="password" onChange={this.handleChangeText} placeholder="Password" value={this.state.password} />
 
@@ -82,4 +82,4 @@ const reduxReducer = (dispatch) => ({
     reduxChangeIsLoading: (data) => dispatch({type: "CHANGE_LOADING", value: data})
 })
 
-export default connect(reduxState, reduxReducer)(Register);
+export default connect(reduxState, reduxReducer)(Login);
