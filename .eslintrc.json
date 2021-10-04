@@ -18,9 +18,8 @@
         "react"
     ],
     "rules": {
-        "linebreak-style" : ["error", "windows"],
-        "react/prefer-stateless-function": "off",
         "linebreak-style" : "off",
+        "react/prefer-stateless-function": "off",
         "react/jsx-filename-extension": "off",
         "arrow-parens":"off",
         "no-undef":"off",
