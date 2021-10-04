@@ -19,14 +19,14 @@ class Login extends Component {
         });
     }
 
-    handleSubmit = () => {
+    handleSubmit = async () => {
         const {email, password} = this.state;
     
         const auth = getAuth(firebaseApp);
     
         this.props.reduxChangeIsLoading(true);
 
-        signInWithEmailAndPassword(auth, email, password)
+        await signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             // Signed in 
                     var user = userCredential.user;
