@@ -5,7 +5,7 @@ import { useKeycloak } from '@react-keycloak/web'
 
 import { useAxios } from '../utils/hooks'
 
-export default () => {
+const HomePage = () => {
   const { keycloak } = useKeycloak()
 
   const axiosInstance = useAxios('http://localhost:5000') // see https://github.com/panz3r/jwt-checker-server for a quick implementation
@@ -29,3 +29,5 @@ export default () => {
     </div>
   )
 }
+
+export default HomePage;

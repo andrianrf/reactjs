@@ -19,7 +19,7 @@ export const useAxios = (baseURL) => {
     return () => {
       axiosInstance.current = undefined;
     };
-  }, [baseURL, initialized, kcToken]);
+  });
 
   return axiosInstance;
 };
