@@ -1,12 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ReactKeycloakProvider } from '@react-keycloak/web';
+import keycloak from './configs/keycloak/keycloak';
+import { AppRouter } from './routes/AppRouter';
+
+const eventLogger = (event, error) => {
+  console.log('onKeycloakEvent', event, error)
+}
+
+const tokenLogger = (tokens) => {
+  console.log('onKeycloakTokens', tokens)
+}
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ReactKeycloakProvider
+      authClient={keycloak}
+      onEvent={eventLogger}
+      onTokens={tokenLogger}
+    >
+      <AppRouter />
+    </ReactKeycloakProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
