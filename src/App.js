@@ -35,6 +35,7 @@ export default function App() {
         <li>Color Highlight (untuk mewarnai hexadecimal) #fff</li>
         <li>Path inetllisense (untuk autocomplete path)</li>
         <li>Git Lens (untuk melihat commit terakhir dari suatu line)</li>
+        <li>Code Time (untuk melihat grafik lama ngoding)</li>
       </ol>
     </div>
   );
