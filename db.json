@@ -1,0 +1,32 @@
+{
+  "posts": [
+    {
+      "id": 1631014096052,
+      "title": "title1",
+      "body": "body1",
+      "userId": 1
+    },
+    {
+      "id": 1631014143844,
+      "title": "title2",
+      "body": "body2",
+      "userId": 1
+    },
+    {
+      "id": 1631014545292,
+      "title": "title3",
+      "body": "title3",
+      "userId": 1
+    },
+    {
+      "id": 1631014622061,
+      "title": "title4",
+      "body": "title4",
+      "userId": 1
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}

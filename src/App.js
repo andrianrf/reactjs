@@ -1,19 +1,20 @@
 import './App.css';
-import { Component } from 'react';
+import { Component, Fragment } from 'react';
+import ApiCrud from './class/ApiCrud';
+
+// npm install -g json-server
+// json-server --watch db.json --port 3004
+// docs : https://github.com/typicode/json-server
 
 class App extends Component {
 
-  constructor(props){
-    super(props);
-    this.state = {
-    }
-  }
-
   render(){
+
     return (
-      <div>
-        React App.js
-      </div>
+      <Fragment>
+        <h3>ApiPost</h3>
+        <ApiCrud />
+      </Fragment>
     )
   }
 }
